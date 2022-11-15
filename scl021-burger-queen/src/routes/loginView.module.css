@@ -1,0 +1,56 @@
+
+#root {
+    width: auto;
+    height: auto;  
+   
+    }
+
+.loginView{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.provider{
+    border:none;
+    width: 300px;
+    padding: 10px 0;
+    color: gray;
+    background-color: beige;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+.borderExt{
+    border-style: groove;
+    border-width: thin;
+    border-color: #C5B18B;
+    margin: 1.2% 3%;
+    padding: 2%;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mainContainer{
+    border-style: groove;
+    border-width: thin;
+    border-color: #C5B18B;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .burgerBackground{
+    opacity: 0.1;
+    height: 50%;
+    width: 50%;
+  }
+
+  .title{
+    font-size: 30px; 
+  }
