@@ -6,20 +6,21 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, Routes, Route } from "react-router-dom";
 
 import LoginView from "./routes/loginView";
-import DashboardView from "./routes/orderView";
+
 import SignOutView from "./routes/signOutView";
-import ChooseUsernameView from "./routes/selectFoodView";
+import ChooseUsernameView from "./routes/orderFoodView";
+
 
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <BrowserRouter>
    <Routes>
   <Route path ="/" element ={<LoginView />} />
-    <Route path ="selectFood" element ={<ChooseUsernameView />} />
-    <Route path ="select" element ={< DashboardView/>} />
-  <Route path ="signout" element ={<SignOutView />} />
+    <Route path ="order" element ={<ChooseUsernameView />} />
+   
 
 
    </Routes>

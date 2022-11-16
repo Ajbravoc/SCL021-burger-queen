@@ -1,0 +1,144 @@
+
+
+.loginView{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.provider{
+    border:none;
+    width: 300px;
+    padding: 10px 0;
+    color: gray;
+    background-color: beige;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+.borderExt{
+    border-style: groove;
+    border-width: thin;
+    border-color: #C5B18B;
+    margin: 1.2% 3%;
+    padding: 2%;
+    width: 100%;
+
+  }
+  
+  .mainContainer{
+    border-style: groove;
+    border-width: thin;
+    border-color: #C5B18B;
+    text-align: center;
+
+  }
+
+  .tablesContainer{
+    
+    display: flex;
+    padding: 1%;
+    border-style: groove;
+    border-width: thin;
+  }
+
+  .col{
+    border-style: groove;
+    padding: 2.5% 3%;
+  }
+
+  .mainFoodContent{
+   
+    height: 80vh;
+  }
+
+  .mealBtns{
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+  }
+  .btnBreakfast{
+    border:none;
+    width: 30vh;
+    height: 6vh;
+    color: gray;
+    background-color: beige;
+    text-align: center;
+    margin: 4%;
+  }
+
+  .btnLunch{
+    border:none;
+    width: 30vh;
+    height: 6vh;
+    padding: 10px 0;
+    color: gray;
+    background-color: beige;
+   
+    text-align: center;
+    margin: 4%;
+  }
+
+  .typeOfMealsBtns{
+    height: 12%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    
+  }
+  .btnDrinks{
+    border:none;
+    width: 20vh;
+    height: 6vh;
+    padding: 10px 0;
+    color: gray;
+    background-color: beige;
+    text-align: center;
+    margin: 4%;
+
+  }
+
+  .btnSandwiches {
+    border:none;
+    width: 20vh;
+    height: 6vh;
+    padding: 10px 0;
+    color: gray;
+    background-color: beige;
+   
+    text-align: center;
+    margin: 4%;
+  }
+
+  .mainMenuContent{
+    background-color: purple;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   
+  }
+  .menuContainer{
+    background-color: white;
+    height: 90%;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+  }
+
+.receipt{
+    background-color: white;
+    height: 90%;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+

@@ -39,7 +39,7 @@ export default function LoginView() {
         const isRegistered = await userExists(user.uid);
         if (isRegistered) {
           //TODO: redirigir a Dashboard
-          navigate("/selectFood");
+          navigate("/order");
           setCurrentState(2);
         } else {
           //TODO: redirigir a choose username
@@ -63,41 +63,22 @@ export default function LoginView() {
     navigate("/select");
   }
 
-  /* este redirecciona AUTOMATICAMENTE SIN DEJAR ABRIR EL POPUP
-function handleUserNotRegistered (user){
-navigate ("/selectFood");
-}*/
+
   function handleUserNotLoggedIn() {
     setCurrentState(4);
   }
 
-  /*
-  if (state === 2) {
-    return <div>Estás autenticado y registrado</div>;
-}
+//Está bien así?
+const logout = async () => {
+  await signOut(auth)
+  .then(() => {
+      navigate('/');
+  })
+  .catch((error) => {
+      return error;
+  });
+};
 
-if (state === 3) {
-    return <div>Estás autenticado pero no registrado</div>;
-}
-*/
-  /* ESTO NO ES PROBLEMA
-if (state === 4) {
-    return (
-        <div>
-          <button onClick={handleOnClick}>Login with Google </button>
-        </div>
-      );
-}
-
-
-if (state === 5) {
-    return (
-        <div>
-          <button onClick={handleOnClick}>Login with Google </button>
-        </div>
-      );
-}
-*/
 
   return (
     <AuthProvider
@@ -114,7 +95,8 @@ if (state === 5) {
         <div className={style.title}>
         <h1> Burger Queen</h1>
       </div>
-        <button className={style.provider} onClick={handleOnClick}>Login with Google </button>
+        <button className={style.btnGoogle} onClick={handleOnClick}>Login with Google </button>
+        <button onClick={logout}>Logout</button>
       </div>
       </div>
     </AuthProvider>
