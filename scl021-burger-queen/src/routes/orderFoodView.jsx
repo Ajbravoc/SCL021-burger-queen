@@ -1,44 +1,40 @@
-import { matchPath, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 
-import { auth, exitsUsername, updateUser } from "../firebase/firebase";
+import { auth} from "../firebase/firebase";
 
-import {
- 
-  signOut,
-} from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 import style from "./orderFoodView.module.css";
-import breakfast from "../menu/menu.json"
+import breakfast from "../menu/menu.json";
 
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
   const [state, setState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
- 
 
-  function handleUserNotRegistered(user) {
+  function firebaseName (user) {
     //navigate ('/choose-username');
-    setCurrentUser(user);
+    setCurrentUser(user); //Setea el nombre de usuario loggeado
     setState(3);
   }
 
 
 
-//Está bien así?
+
+  //Está bien así?
   const logout = async () => {
     await signOut(auth)
-    .then(() => {
-        navigate('/');
-    })
-    .catch((error) => {
+      .then(() => {
+        navigate("/");
+      })
+      .catch((error) => {
         return error;
-    });
+      });
   };
-  
-/* Insertar fecha pero no me deja :()
+
+  /* Insertar fecha pero no me deja :()
 const fecha = document.getElementsByClassName("date");
 function clock (){
   let now = new Date().toLocaleTimeString()
@@ -47,58 +43,61 @@ function clock (){
   ReactDOM.render(el,fecha)
 }
 setInterval(clock, 1000 )*/
-  
 
-
-  if (state === 3 ) {
+  if (state === 3) {
     return (
       <div className={style.borderExt}>
-          <div className={style.mainContainer}>
-          <nav><h1> Bienvenido {currentUser.displayName} ¿Desayunooo o Almuerzo? </h1></nav>
-         <div className={style.tablesContainer}>
-    <div class={style.col}>Table 1</div>
-    <div class={style.col}>Table 2</div>
-    <div class={style.col}>Table 3</div>
-    <div class={style.col}>Table 4</div>
-    <div class={style.col}>Table 5</div>
-    <div class={style.col}>Table 6</div>
-    <div class={style.date}>Date</div>
-  </div>
- <div className={style.mainFoodContent}>
-  <div className ={style.mealBtns}>
- <button className={style.btnBreakfast} onClick>Breakfast</button>
- <button className={style.btnLunch} onClick>Lunch</button>
- </div>
- <div className={style.typeOfMealsBtns}>
- <button className={style.btnDrinks} onClick>Drinks</button>
- <button className={style.btnSandwiches} onClick>Sandwiches</button>
- </div>
- <div className={style.mainMenuContent}>
-  
- <div className ={style.menuContainer}> </div>
-<div className={style.receipt}></div>
-
- </div>
-             <button onClick={logout}>Logout</button>
-         </div>
-</div>
+        <div className={style.mainContainer}>
+          <nav>
+            <h1> Welcome, {currentUser.displayName} </h1>
+          </nav>
+          <div className={style.tablesContainer}>
+            <div class={style.col}>Table 01</div>
+            <div class={style.col}>Table 02</div>
+            <div class={style.col}>Table 03</div>
+            <div class={style.col}>Table 04</div>
+            <div class={style.col}>Table 05</div>
+            <div class={style.col}>Table 06</div>
+            <div class={style.date}>Date</div>
           </div>
+          <div className={style.mainFoodContent}>
+            <div className={style.mealBtns}>
+              <button className={style.btnBreakfast} onClick>
+                Breakfast
+              </button>
+              <button className={style.btnLunch} onClick>
+                Lunch/Dinner
+              </button>
+            </div>
+            <div className={style.typeOfMealsBtns}>
+              <button className={style.btnDrinks} onClick>
+                Drinks
+              </button>
+              <button className={style.btnSandwiches} onClick>
+                Sandwiches
+              </button>
+            </div>
+            <div className={style.mainMenuContent}>
+              <div className={style.menuContainer}> </div>
+              <div className={style.receipt}>
+                <div className={style.receiptTitle}>
+                  <h1> Receipt</h1>
+                </div>
+              </div>
+            </div>
+            <button className ={style.btnLogout} onClick={logout}>Logout</button>
+          </div>
+        </div>
+      </div>
     );
   }
 
-
-
   return (
-    <AuthProvider /*Componente*/
+    <AuthProvider onUserNotRegistered={firebaseName}/*Componente*/>
+     
    
-    
-    onUserNotRegistered={handleUserNotRegistered}
-   >
-   
-    
-        <button onClick={logout}>Logout</button>
-      
-    
     </AuthProvider>
   );
 }
+
+

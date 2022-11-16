@@ -1,10 +1,3 @@
-
-#root {
-    width: auto;
-    height: auto;  
-   
-    }
-
 .loginView{
     width: 100%;
     height: 100%;
@@ -15,25 +8,16 @@
     flex-direction: column;
 }
 
-.btnGoogle{
-    border:none;
-    width: 300px;
-    padding: 10px 0;
-    color: gray;
-    background-color: beige;
-    border-radius: 3px;
-    text-align: center;
-}
+
 
 
 .borderExt{
-    border-style: groove;
-    border-width: thin;
-    border-color: #C5B18B;
-    margin: 1.2% 3%;
-    padding: 2%;
-    width: 100%;
-    height: 100%;
+  border-style: groove;
+  border-width: thin;
+  border-color: #C5B18B;
+  margin: 1.2% 3%;
+  padding: 2%;
+  width: 100%;
   }
   
   .mainContainer{
@@ -41,16 +25,61 @@
     border-width: thin;
     border-color: #C5B18B;
     text-align: center;
-    width: 100%;
-    height: 100%;
   }
 
   .burgerBackground{
-    opacity: 0.1;
+    opacity: 0.13;
     height: 50%;
     width: 50%;
   }
 
   .title{
-    font-size: 30px; 
+    font-size: 50px; 
+ font-family: 'Telex', sans-serif;
+ letter-spacing: 1vh;
+ margin-top: -48%;
+    padding: 5%
+  }
+
+  .btnsLoginView{
+    display: inline-grid;
+    justify-items: stretch;
+    margin-bottom: 10%;
+  }
+
+  .btnGoogle{
+    border-style: groove;
+    border-width: thin;
+    border-color: white;
+    height: 8vh;
+    width: 40vh;
+    padding: 10px 0;
+    color: white;
+    background-color: #393535;
+    border-radius: 3px;
+    text-align: center;
+    margin-bottom: 6%;
+    opacity: 0.4;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size:medium;
+    
+}
+  .btnLogout{
+    border-style: groove;
+    border-width: thin;
+    border-color: white;
+    height: 8vh;
+    width: 40vh;
+    padding: 10px 0;
+    color: white;
+    background-color: #393535;
+    border-radius: 3px;
+    text-align: center;
+    margin-bottom: 4%;
+    opacity: 0.4;
+   font-family: 'DM Sans', sans-serif;
+   font-weight: bold;
+   font-size:medium;
+    
   }

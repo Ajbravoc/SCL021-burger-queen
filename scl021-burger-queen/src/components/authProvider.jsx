@@ -1,18 +1,13 @@
 import {
-  GoogleAuthProvider,
   onAuthStateChanged,
-  signInWithPopup,
 } from "firebase/auth";
-import { useEffect, useState } from "react";
-import { auth, getUserInfo, registerNewUser, userExists } from "../firebase/firebase";
-
+import { useEffect} from "react";
+import { auth, getUserInfo, userExists } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 
 
 export default function AuthProvider({
   children,
-  onUserLoggedIn,
-  onUserNotLoggedIn,
   onUserNotRegistered,
 }) {
   const navigate = useNavigate();
@@ -21,28 +16,17 @@ export default function AuthProvider({
     onAuthStateChanged(auth, async (user) => {
       if (user) {
        
-        const isRegistered = await userExists(user.uid);
-        if (isRegistered) {
+        const isLogged = await userExists(user.uid);
+        if (isLogged) {
             const userInfo = await getUserInfo(user.uid);
             if(userInfo.processCompleted){
-                onUserLoggedIn(userInfo);
+              onUserNotRegistered(userInfo);
             }else{
                onUserNotRegistered(userInfo);
             }
-        } else { 
-            await registerNewUser({
-                uid: user.uid,
-                displayName: user.displayName,
-                profilePicture: '',
-                username: '',
-                processCompleted: false,
-            });
-         onUserNotRegistered(user);
-        }
-      } else {
-       onUserNotLoggedIn();
-      }
+        } 
+      } 
     });
-  }, [navigate, onUserLoggedIn, onUserNotRegistered, onUserNotLoggedIn]);
+  }, [navigate,  onUserNotRegistered]);
   return <div>{children}</div>;
 }

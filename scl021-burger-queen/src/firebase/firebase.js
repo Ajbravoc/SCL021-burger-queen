@@ -2,25 +2,13 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  getBytes,
-} from "firebase/storage";
 
 import {
   getFirestore,
   collection,
-  addDoc,
-  getDocs,
   doc,
   getDoc,
-  query,
-  where,
   setDoc,
-  deleteDoc,
 } from "firebase/firestore/lite";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -39,43 +27,13 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 const db = getFirestore(app);
-const storage = getStorage(app);
+
 
 export async function userExists(uid) {
   const docRef = doc(db, "users", uid);
   const res = await getDoc(docRef);
   console.log(res);
   return res.exists();
-}
-
-export async function exitsUsername(username) {
-  const users = [];
-  const docsRef = collection(db, "users");
-  const q = query(docsRef, where("username", "==", username));
-
-  const querySnapshot = await getDocs(q);
-
-  querySnapshot.forEach((doc) => {
-    users.push(doc.data());
-  });
-
-  return users.length > 0 ? users[0].uid : null;
-}
-
-export async function registerNewUser(user) {
-  try {
-    const collectionRef = collection(db, "users");
-    const docRef = doc(collectionRef, user.uid);
-    await setDoc(docRef, user);
-  } catch (error) {}
-}
-
-export async function updateUser (user){
-    try{
-        const collectionRef = collection(db,"users");
-        const docRef = doc(collectionRef, user.uid);
-        await setDoc(docRef, user);
-    }catch (error) {}
 }
 
 export async function getUserInfo (uid) {
@@ -85,20 +43,3 @@ export async function getUserInfo (uid) {
         return document.data();
     } catch (error) {}
 }
-
-/*
-export async function logout (user){
-    try{ }
-}
-
-Función para cerrar sesión
-const logout = () => {
-    signOut(auth)
-      .then(() => {
-        window.location.hash = "#/login";
-      })
-      .catch((error) => {
-        return error;
-        // An error happened.
-      });
-  };*/
