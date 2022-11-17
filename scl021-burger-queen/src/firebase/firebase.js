@@ -43,3 +43,10 @@ export async function getUserInfo (uid) {
         return document.data();
     } catch (error) {}
 }
+
+
+
+//Nuevo en la tarde
+export async function logout(){
+  await auth.signOut();
+}

@@ -2,9 +2,7 @@
 #root{
   height: 70%;
 }
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -39,4 +37,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.App {
+  text-align: center;
+}
+
+.stock-container {
+  padding-left: 3em;
+  padding-right: 3em;
+  margin-top: 3em;
 }

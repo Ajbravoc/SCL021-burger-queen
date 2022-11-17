@@ -13,7 +13,7 @@ import style from "./loginView.module.css";
 import burgerbackground from "./imgs/burgerbackground.png";
 
 export default function LoginView() {
-  async function handleOnClick() {
+  async function googleHandleOnClick() {
     const googleProvider = new GoogleAuthProvider();
     await signInWithGoogle(googleProvider);
   }
@@ -39,7 +39,9 @@ export default function LoginView() {
     }
   }
 
- 
+  const handleClick = () => {
+    console.log('button clicked');
+  };
 
   //Está bien así?
   const logout = async () => {
@@ -65,10 +67,10 @@ export default function LoginView() {
             <h1> Burger Queen</h1>
           </div>
           <div className={style.btnsLoginView}>
-          <button className={style.btnGoogle} onClick={handleOnClick}>
+          <button onClick={googleHandleOnClick} className={style.btnGoogle}>
             Continue with Google{" "}
           </button>
-          <button className ={style.btnLogout} onClick={logout}>Crear cuenta</button>
+          <button className ={style.btnLogout}> Crear cuenta</button>
           </div>
         </div>
       </div>

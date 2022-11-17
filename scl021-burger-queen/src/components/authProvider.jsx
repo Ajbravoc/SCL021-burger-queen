@@ -1,32 +1,22 @@
-import {
-  onAuthStateChanged,
-} from "firebase/auth";
-import { useEffect} from "react";
-import { auth, getUserInfo, userExists } from "../firebase/firebase";
-import { useNavigate } from "react-router-dom";
+import { onAuthStateChanged } from "firebase/auth";
+import { useEffect } from "react";
+import { auth, getUserInfo } from "../firebase/firebase";
 
-
-export default function AuthProvider({
-  children,
-  onUserNotRegistered,
-}) {
-  const navigate = useNavigate();
+export default function AuthProvider({ children, onUserNotRegistered }) {
+  
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       if (user) {
-       
-        const isLogged = await userExists(user.uid);
-        if (isLogged) {
-            const userInfo = await getUserInfo(user.uid);
-            if(userInfo.processCompleted){
-              onUserNotRegistered(userInfo);
-            }else{
-               onUserNotRegistered(userInfo);
-            }
-        } 
-      } 
-    });
-  }, [navigate,  onUserNotRegistered]);
+          const userInfo = await getUserInfo(user.uid);
+          if (userInfo.processCompleted) {
+            onUserNotRegistered(userInfo);
+          } else {
+            onUserNotRegistered(userInfo);
+          }
+        }
+      }
+    );
+  }, [ onUserNotRegistered]);
   return <div>{children}</div>;
 }

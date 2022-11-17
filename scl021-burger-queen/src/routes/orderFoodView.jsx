@@ -8,7 +8,7 @@ import { signOut } from "firebase/auth";
 
 import style from "./orderFoodView.module.css";
 import breakfast from "../menu/menu.json";
-
+ 
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
   const [state, setState] = useState(0);
@@ -19,8 +19,11 @@ export default function ChooseUsernameView() {
     setCurrentUser(user); //Setea el nombre de usuario loggeado
     setState(3);
   }
+  
 
-
+  const handleClick = () => {
+    console.log('button clicked');
+  };
 
 
   //Está bien así?
@@ -62,30 +65,31 @@ setInterval(clock, 1000 )*/
           </div>
           <div className={style.mainFoodContent}>
             <div className={style.mealBtns}>
-              <button className={style.btnBreakfast} onClick>
+            <button onClick={handleClick} className={style.btnBreakfast}>
                 Breakfast
               </button>
-              <button className={style.btnLunch} onClick>
+              <button onClick={handleClick} className={style.btnLunch}>
                 Lunch/Dinner
               </button>
             </div>
             <div className={style.typeOfMealsBtns}>
-              <button className={style.btnDrinks} onClick>
+              <button onClick={handleClick} className={style.btnDrinks}>
                 Drinks
               </button>
-              <button className={style.btnSandwiches} onClick>
+              <button onClick={handleClick} className={style.btnSandwiches}>
                 Sandwiches
               </button>
             </div>
             <div className={style.mainMenuContent}>
-              <div className={style.menuContainer}> </div>
+              <div className={style.menuContainer}> 
+              <h2> Aqui quiero al Json</h2></div>
               <div className={style.receipt}>
                 <div className={style.receiptTitle}>
                   <h1> Receipt</h1>
                 </div>
               </div>
             </div>
-            <button className ={style.btnLogout} onClick={logout}>Logout</button>
+            <button onClick={logout} className ={style.btnLogout} >Logout</button>
           </div>
         </div>
       </div>
