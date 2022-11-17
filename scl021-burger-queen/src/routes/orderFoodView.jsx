@@ -85,12 +85,25 @@ setInterval(clock, 1000 )*/
               <h2> Aqui quiero al Json</h2></div>
               <div className={style.receipt}>
                 <div className={style.receiptTitle}>
-                  <h1> Receipt</h1>
+                  <h2> Receipt</h2>
+                  <hr/>
+                  <div className={style.calculator}></div>
+                  <hr/>
+                  <h3> Total </h3>
+                  <hr/>
+                  <div className={style.receiptBtns}>
+                  <button onClick={handleClick} className ={style.btnLogout} >Take order</button>
+                  <button onClick={handleClick} className ={style.btnLogout} >Cancel</button>
+                  </div>
                 </div>
               </div>
             </div>
-            <button onClick={logout} className ={style.btnLogout} >Logout</button>
-          </div>
+           
+          </div> <footer>
+              <button onClick={logout} className ={style.btnLogoutGoogle} 
+            
+            >Logout</button>  
+            </footer>
         </div>
       </div>
     );

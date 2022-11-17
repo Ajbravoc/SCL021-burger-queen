@@ -5,9 +5,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     flex-direction: column;
 }
+h1{
+  display: flex;
+  margin-left: 2%;
+}
+
 
 .provider{
     border:none;
@@ -39,28 +43,36 @@
   }
 
   .tablesContainer{
-    
     display: flex;
-  
+    flex-direction: row;
   }
 
   .col{
+    height: 8vh;
+    width: 15vh;
     border-style: groove;
     border-width: thin;
-    padding: 2% 3%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Telex', sans-serif;
     border-color: #C5B18B;
   }
 
   .date{ 
     border-style: groove;
     border-width: thin;
-    padding: 2.5% 3%;
-    width: 28%;
+    height: 8vh;
+    width: 78vh;
     border-color: #C5B18B;
+    display:flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .mainFoodContent{
     height: 68vh;
+    margin-bottom: -6.5vh;
   }
 
   .mealBtns{
@@ -140,39 +152,74 @@
     justify-content: space-around;
     height: 55%;
     margin-top: 20px;
+    
    
   }
   .menuContainer{
     background-color: white;
-    height: 90%;
+    height: 111%;
     width: 65%;
     display: flex;
     flex-direction: column;
+    margin-top: -1%
   }
 
   h2{
     color: black;
   }
+
+  h3{
+    color: black;
+    font-size: 1.9vh;
+    text-align: left;
+    margin-left: 20px;
+  }
 .receipt{
     background-color: white;
-    height: 90%;
+    height: 111%;
     width: 30%;
     display: flex;
     flex-direction: column;
     border-radius: 2%;
+    margin-top: -1%;
+    font-size: 60%;
+    font-family: 'DM Sans', sans-serif;
 }
 
-.receiptTitle{
-    color: #353434;
-    font-size: 1vh;
-    font-family: 'Telex', sans-serif;
-    font-weight: 100;
+
+
+.calculator{
+  height: 100%;
 }
 
+.receiptBtns{
+  display:flex;
+  justify-content: space-around;
+}
 .btnLogout{
   border-style: groove;
   border-width: thin;
   border-color: white;
+  height: 5vh;
+  width: 12vh;
+  padding: 10px 0;
+  color: rgb(255, 255, 255);
+  background-color: #060606;
+  border-radius: 3px;
+  text-align: center;
+  margin-bottom: 2%;
+ font-family: 'DM Sans', sans-serif;
+ font-weight: bold;
+ font-size:small;
+}
+
+footer{
+  height: 6vh;
+
+}
+.btnLogoutGoogle{
+  border-style: groove;
+  border-width: thin;
   height: 5vh;
   width: 10vh;
   padding: 10px 0;
@@ -180,11 +227,11 @@
   background-color: #6F6464;
   border-radius: 3px;
   text-align: center;
-  margin-bottom: 4%;
   opacity: 0.6;
  font-family: 'DM Sans', sans-serif;
  font-weight: bold;
  font-size:small;
-
-  
+ float: right;
+ margin-right: 2vh;
+ margin-top: -1vh;
 }
