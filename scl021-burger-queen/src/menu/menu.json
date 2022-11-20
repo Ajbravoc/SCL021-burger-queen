@@ -2,7 +2,7 @@
     "breakfast":[
         {
             "id": 1,
-            "name": "Sandwich con jamón y queso",
+            "name": "Sand. jamón y queso",
             "image":"./pics/sandwich.png",
             "price":10
         },

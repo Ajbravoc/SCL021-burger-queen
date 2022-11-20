@@ -1,4 +1,10 @@
 /*no entiendo pq pasa eso si ya tengo una clase junto a sus detalles*/
+
+@media (max-width: 1024px) {
+  body {
+    margin: 0%;
+  }}
+
 #root{
   width: 90%;
 }

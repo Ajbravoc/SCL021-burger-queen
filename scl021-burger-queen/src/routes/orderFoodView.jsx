@@ -2,29 +2,29 @@ import { useNavigate } from "react-router-dom";
 import AuthProvider from "../components/authProvider";
 import { useState } from "react";
 
-import { auth} from "../firebase/firebase";
+import { auth } from "../firebase/firebase";
 
 import { signOut } from "firebase/auth";
 
 import style from "./orderFoodView.module.css";
-import breakfast from "../menu/menu.json";
- 
+import menu from "../menu/menu.json";
+
+
 export default function ChooseUsernameView() {
   const navigate = useNavigate();
   const [state, setState] = useState(0);
   const [currentUser, setCurrentUser] = useState({});
 
-  function firebaseName (user) {
+  function firebaseName(user) {
     //navigate ('/choose-username');
     setCurrentUser(user); //Setea el nombre de usuario loggeado
     setState(3);
   }
-  
+  console.log(menu);
 
   const handleClick = () => {
-    console.log('button clicked');
+    console.log("button clicked");
   };
-
 
   //Está bien así?
   const logout = async () => {
@@ -65,9 +65,10 @@ setInterval(clock, 1000 )*/
           </div>
           <div className={style.mainFoodContent}>
             <div className={style.mealBtns}>
-            <button onClick={handleClick} className={style.btnBreakfast}>
+              <button onClick={handleClick} className={style.btnBreakfast}>
                 Breakfast
               </button>
+
               <button onClick={handleClick} className={style.btnLunch}>
                 Lunch/Dinner
               </button>
@@ -81,40 +82,53 @@ setInterval(clock, 1000 )*/
               </button>
             </div>
             <div className={style.mainMenuContent}>
-              <div className={style.menuContainer}> 
-              <h2> Aqui quiero al Json</h2></div>
+              <div className={style.menuContainer}>
+               <div className={style.holaContainer}>
+                 {menu.breakfast.map((item, indice,) => (
+                  <div className={style.foodPicsContainer}><p key={indice}>
+                    {item.name}
+                    <br/>
+                    <br/>
+                
+                <img src={item.image} alt="foto.png" />
+                    
+                     <div className={style.price}> {item.price}</div>
+                    </p></div>
+                ))}
+              </div></div>
               <div className={style.receipt}>
                 <div className={style.receiptTitle}>
                   <h2> Receipt</h2>
-                  <hr/>
+                  <hr />
                   <div className={style.calculator}></div>
-                  <hr/>
+                  <hr />
                   <h3> Total </h3>
-                  <hr/>
+                  <hr />
                   <div className={style.receiptBtns}>
-                  <button onClick={handleClick} className ={style.btnLogout} >Take order</button>
-                  <button onClick={handleClick} className ={style.btnLogout} >Cancel</button>
+                    <button onClick={handleClick} className={style.btnLogout}>
+                      Take order
+                    </button>
+                    <button onClick={handleClick} className={style.btnLogout}>
+                      Cancel
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
-           
-          </div> <footer>
-              <button onClick={logout} className ={style.btnLogoutGoogle} 
-            
-            >Logout</button>  
-            </footer>
+          </div>{" "}
+          <footer>
+            <button onClick={logout} className={style.btnLogoutGoogle}>
+              Logout
+            </button>
+          </footer>
         </div>
       </div>
     );
   }
 
   return (
-    <AuthProvider onUserNotRegistered={firebaseName}/*Componente*/>
-     
-   
-    </AuthProvider>
+    <AuthProvider
+      onUserNotRegistered={firebaseName} /*Componente*/
+    ></AuthProvider>
   );
 }
-
-

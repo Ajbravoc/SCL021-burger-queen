@@ -7,10 +7,6 @@
     align-items: center;
     flex-direction: column;
 }
-h1{
-  display: flex;
-  margin-left: 2%;
-}
 
 
 .provider{
@@ -161,7 +157,13 @@ h1{
     width: 65%;
     display: flex;
     flex-direction: column;
-    margin-top: -1%
+    margin-top: -1%;
+    color: black;
+  }
+
+  .foodContainer{
+    background-color: #C06014;
+    border-color: purple;
   }
 
   h2{
@@ -187,6 +189,38 @@ h1{
 }
 
 
+img{
+  height: 8vh;
+
+}
+
+p{
+ color: white;
+ font-family: 'DM Sans', sans-serif;
+font-weight: 800;
+font-size: medium;
+padding: 0 12%;
+}
+
+.foodPicsContainer{
+  background-color: #000000;
+  height: 75%;
+  width: 21%;
+  display: inline-flex;
+  margin-top: 8%;
+  justify-content: center;
+  margin-right: 2%;
+}
+
+.img{
+  height: 10%;
+  width: 12%;
+  background-color: #C06014;
+}
+
+.price{
+  margin-top:9%;
+}
 
 .calculator{
   height: 100%;

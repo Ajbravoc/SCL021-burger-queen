@@ -45,8 +45,8 @@ export async function getUserInfo (uid) {
 }
 
 
-
-//Nuevo en la tarde
 export async function logout(){
   await auth.signOut();
 }
+
+//acá deberia estar las funciones de firebase 
