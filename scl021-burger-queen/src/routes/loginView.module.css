@@ -51,6 +51,10 @@ h1{
     margin-bottom: 10%;
   }
 
+  .holaContainer{
+    background-color: hotpink;
+  }
+
   .btnGoogle{
     border-style: groove;
     border-width: thin;
