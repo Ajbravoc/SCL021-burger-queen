@@ -38,9 +38,14 @@
 
   }
 
+  h1{
+    color: white;
+  }
+
   .tablesContainer{
     display: flex;
     flex-direction: row;
+    color:white;
   }
 
   .col{
@@ -190,7 +195,7 @@
 
 
 img{
-  height: 8vh;
+  height: 6vh;
 
 }
 
@@ -198,18 +203,26 @@ p{
  color: white;
  font-family: 'DM Sans', sans-serif;
 font-weight: 800;
-font-size: medium;
-padding: 0 12%;
+font-size: 12px;
 }
 
-.foodPicsContainer{
+.foodPicsBreakContainer{
   background-color: #000000;
-  height: 75%;
-  width: 21%;
+  height: 29%;
+    width: 27%;
   display: inline-flex;
   margin-top: 8%;
   justify-content: center;
-  margin-right: 2%;
+  margin-right: 1%
+}
+.foodPicsContainer{
+  background-color: #000000;
+  height: 29%;
+    width: 27%;
+  display: inline-flex;
+  margin-top: 8%;
+  justify-content: center;
+  margin-right: 1%
 }
 
 .img{
@@ -222,9 +235,9 @@ padding: 0 12%;
   margin-top:9%;
 }
 
-.calculator{
-  height: 100%;
-}
+
+
+
 
 .receiptBtns{
   display:flex;
@@ -269,3 +282,4 @@ footer{
  margin-right: 2vh;
  margin-top: -1vh;
 }
+
