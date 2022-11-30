@@ -13,15 +13,22 @@ export default function ChooseUsernameView() {
   const navigate = useNavigate();
   const [state, setState] = useState(1);
   const [currentUser, setCurrentUser] = useState({});
-  {
-    /*}el valor de categoria es null*/
-  }
+
   const [categoria, setCategoria] = useState("drink");
   const [order, setOrder] = useState([]);
+const [cart, setCart] = useState([]);
+  const [count, setCount] = useState(1);
+  const decrease = () => {
+    setCount(count - 1);
+  };
+  const increase = () => {
+    setCount(count + 1);
+  };
 
-  {
-    /*} creo un state nuevo, paso jugo como objeto, y usando map en el receipt . Vuelve a dibujar todo el componente con la info actualizada. order inicia, setorder , usestate*/
-  }
+
+
+  
+
   function firebaseName(user) {
     //navigate ('/choose-username');
     setCurrentUser(user); //Setea el nombre de usuario loggeado
@@ -31,6 +38,20 @@ export default function ChooseUsernameView() {
   const handleClick = () => {
     console.log("button clicked");
   };
+
+  {
+    /*ayuda akii
+  const addProduct = (item,quantity) => {
+    if( setOrder(item.id)){
+      setCategoria(menu.map(product => {
+        return product.id === item.id ? {...product,quantity:product.quantity + quantity } : product
+      }));
+    } else {
+      ([...setOrder, {...item, quantity}]);
+    }
+  }
+*/
+  }
 
   //Está bien así?
   const logout = async () => {
@@ -61,13 +82,13 @@ setInterval(clock, 1000 )*/
             <h1> Welcome, {currentUser.displayName} </h1>
           </nav>
           <div className={style.tablesContainer}>
-            <div class={style.col}>Table 01</div>
-            <div class={style.col}>Table 02</div>
-            <div class={style.col}>Table 03</div>
-            <div class={style.col}>Table 04</div>
-            <div class={style.col}>Table 05</div>
-            <div class={style.col}>Table 06</div>
-            <div class={style.date}>Date</div>
+            <div className={style.col}>Table 01</div>
+            <div className={style.col}>Table 02</div>
+            <div className={style.col}>Table 03</div>
+            <div className={style.col}>Table 04</div>
+            <div className={style.col}>Table 05</div>
+            <div className={style.col}>Table 06</div>
+            <div className={style.date}>Date</div>
           </div>
           <div className={style.mainFoodContent}>
             <div className={style.mealBtns}>
@@ -132,36 +153,38 @@ setInterval(clock, 1000 )*/
                           className={style.foodPicsBreakContainer}
                         >
                           <p key={indice}>
-                            {item.name} 
+                            {item.name}
                             <br />
                             <br />
 
                             <img src={item.image} alt="foto.png" />
 
-                            <div className={style.price}> {item.price}</div></p>
-                         
+                            <div className={style.price}> {item.price}</div>
+                          </p>
                         </button>
                       ))}
 
                   {state === 2 &&
                     menu.lunch
-                    .filter((item) => item.type === categoria)
-                    .map((item, indice) => (
-                      <button
-                        onClick={() => {
-                          setOrder([...order, item]);
-                        }}
-                        className={style.foodPicsContainer}
-                      >
-                        <p key={indice}>
-                          {item.name}
-                          <br />
-                          <br /> 
+                      .filter((item) => item.type === categoria)
+                      .map((item, index) => (
+                        <button
+                          onClick={() => {
+                            setOrder([...order, item]);
+                          }}
+                          className={style.foodPicsContainer}
+                        >
+                          <div className={style.context}>
+                            <p key={index}>
+                              {item.name}
+                              <br />
+                              <br />{" "}
+                            </p>
 
                             <img src={item.image} alt="foto.png" />
 
-                            <div className={style.price}> {item.price}</div></p>
-                         
+                            <div className={style.price}> {item.price}</div>
+                          </div>
                         </button>
                       ))}
 
@@ -207,40 +230,53 @@ setInterval(clock, 1000 )*/
                     {order.map((item) => {
                       return (
                         <div key={item.id}>
-                      
-                 {item.name + " "}{item.price}
-                         
-                        </div> 
+                          {item.name + " " + item.price}
+
+                          <div className={style.counter}>
+                            
+                            
+                            <button disabled={count <= 1} onClick={decrease}>
+                              -
+                            </button>
+                            <span>{count}</span>
+                            <button disabled={count >= 35} onClick={increase}>
+                              +
+                            </button>
+                            <div></div>
+                          </div>
+                        </div>
                       );
                     })}
                   </div>
-                  <h3> Total </h3>
+                  {/*1. Que sume el total 
+                  2. Que no se acumulen y se vayan adicionando*/}
+                  <p className={style.total}>
+                   Total: {/*{quantity * item.price}} */}
+                  </p>
                   <hr />
                   <div className={style.receiptBtns}>
                     <button onClick={handleClick} className={style.btnLogout}>
                       Take order
                     </button>
 
-
                     <button
-                onClick={() => {
-                  setCategoria(null);
-                }}
-             
-                    className={style.btnLogout}>
+                      onClick={() => {
+                        setOrder([]);
+                      }}
+                      className={style.btnLogout}
+                    >
                       Cancel
                     </button>
                   </div>{" "}
                 </div>
               </div>
             </div>
-          </div>
-        </div>{" "}
-        <footer>
+          </div>{" "}
           <button onClick={logout} className={style.btnLogoutGoogle}>
             Logout
           </button>
-        </footer>
+        </div>{" "}
+        <footer></footer>
       </div>
 
       {/*}  <AuthProvider

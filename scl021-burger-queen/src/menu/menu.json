@@ -5,7 +5,7 @@
              "type": "food",
             "name": "Sand. jamón y queso",
             "image":"./pics/sandwich.png",
-            "price":10
+            "price": "$10"
         },
         {
             "id": 2,
